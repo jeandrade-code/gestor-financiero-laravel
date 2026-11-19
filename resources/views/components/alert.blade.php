@@ -1,35 +1,33 @@
 @props(['type' => 'info', 'message', 'dismissible' => true])
 
 @php
-    $classes = match($type) {
-        'success' => 'bg-income-50 border-income-200 text-income-800 dark:bg-income-900/20 dark:border-income-800 dark:text-income-300',
-        'error' => 'bg-expense-50 border-expense-200 text-expense-800 dark:bg-expense-900/20 dark:border-expense-800 dark:text-expense-300',
-        'warning' => 'bg-warning-50 border-warning-200 text-warning-800 dark:bg-warning-900/20 dark:border-warning-800 dark:text-warning-300',
-        default => 'bg-brand-50 border-brand-200 text-brand-800 dark:bg-brand-900/20 dark:border-brand-800 dark:text-brand-300',
+    $classes = match ($type) {
+        'success' => 'border-income-200/80 bg-income-50/70 text-income-800 dark:border-neutral-700 dark:bg-neutral-800/70 dark:text-neutral-200',
+        'error' => 'border-expense-200/80 bg-expense-50/70 text-expense-800 dark:border-expense-500/20 dark:bg-expense-500/10 dark:text-expense-200',
+        'warning' => 'border-warning-200/80 bg-warning-50/70 text-warning-800 dark:border-warning-500/20 dark:bg-warning-500/10 dark:text-warning-200',
+        default => 'border-brand-200/80 bg-brand-50/70 text-brand-800 dark:border-neutral-700 dark:bg-neutral-800/70 dark:text-neutral-200',
     };
 
-    $icon = match($type) {
-        'success' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
-        'error' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
-        'warning' => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>',
-        default => '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>',
-    };
+    $icons = [
+        'success' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',
+        'error' => 'M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z',
+        'warning' => 'M12 9v3.75m0 3.75h.008v.008H12v-.008zM10.34 3.94l-8.22 14.25A1.5 1.5 0 003.42 20.5h17.16a1.5 1.5 0 001.3-2.31L13.66 3.94a1.5 1.5 0 00-2.6 0z',
+        'info' => 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    ];
 @endphp
 
-<div class="flex items-start gap-3 p-4 rounded-xl border {{ $classes }} animate-in" role="alert">
-    <div class="flex-shrink-0 mt-0.5 text-current">
-        {!! $icon !!}
-    </div>
-    <div class="flex-1 min-w-0">
-        <p class="text-body">{{ $message }}</p>
-    </div>
+<div class="animate-in flex items-start gap-3 rounded-lg border px-4 py-3 {{ $classes }}" role="alert">
+    <svg class="mt-0.5 h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="{{ $icons[$type] ?? $icons['info'] }}" />
+    </svg>
+    <p class="min-w-0 flex-1 text-[0.8125rem] leading-relaxed">{{ $message }}</p>
     @if ($dismissible)
         <button type="button"
-                class="flex-shrink-0 p-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current"
-                aria-label="Cerrar"
-                onclick="this.parentElement.style.animation='fadeOut 150ms ease-in forwards'; setTimeout(() => this.parentElement.remove(), 150)">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                class="-mr-1 shrink-0 rounded p-1 opacity-60 transition-opacity hover:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current"
+                aria-label="Cerrar mensaje"
+                onclick="this.parentElement.remove()">
+            <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
     @endif

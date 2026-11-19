@@ -25,6 +25,16 @@ class TransaccionController extends Controller
             ->with(['cuenta', 'categoria'])
             ->when($request->filled('tipo'), fn ($query) => $query->where('tipo', $request->string('tipo')))
             ->when($request->filled('cuenta_id'), fn ($query) => $query->where('cuenta_id', $request->integer('cuenta_id')))
+            ->when($request->filled('search'), function ($query) use ($request): void {
+                $term = '%'.$request->string('search')->trim().'%';
+
+                $query->where(function ($query) use ($term): void {
+                    $query->where('descripcion', 'like', $term)
+                        ->orWhere('creado_por', 'like', $term)
+                        ->orWhereHas('cuenta', fn ($query) => $query->where('nombre', 'like', $term))
+                        ->orWhereHas('categoria', fn ($query) => $query->where('nombre', 'like', $term));
+                });
+            })
             ->orderByDesc('fecha')
             ->orderByDesc('id')
             ->paginate(10)
@@ -36,7 +46,9 @@ class TransaccionController extends Controller
             'filtros' => [
                 'tipo' => $request->input('tipo'),
                 'cuenta_id' => $request->input('cuenta_id'),
+                'search' => $request->input('search'),
             ],
+            'totalTransacciones' => Transaccion::query()->count(),
         ]);
     }
 

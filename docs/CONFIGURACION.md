@@ -1,7 +1,8 @@
 # Archivo de configuración
 
 Documento de referencia con la configuración del proyecto **Gestor Financiero**. El archivo real es
-`.env` (no se versiona); su plantilla es `.env.example` (sí se versiona).
+`.env` (no se versiona); `.env.example` (sí se versiona) se entrega **idéntico** al `.env` de desarrollo
+para que cualquier persona pueda consultar todos los valores.
 
 ---
 
@@ -11,7 +12,7 @@ Documento de referencia con la configuración del proyecto **Gestor Financiero**
 | -------- | ---------------------- | --------- |
 | `APP_NAME` | `"Gestor Financiero"` | Nombre mostrado en la interfaz y en el título de las páginas |
 | `APP_ENV` | `local` | Entorno de ejecución |
-| `APP_KEY` | *(generado con `php artisan key:generate`)* | Clave de cifrado de Laravel |
+| `APP_KEY` | `base64:...` (incluida en `.env.example`) | Clave de cifrado; `key:generate` la reemplaza al instalar |
 | `APP_DEBUG` | `true` | Muestra detalles de error en desarrollo |
 | `APP_URL` | `http://localhost:8000` | URL base de la aplicación |
 | `APP_LOCALE` | `es` | Idioma de la interfaz y de los mensajes de validación |
@@ -43,14 +44,16 @@ Documento de referencia con la configuración del proyecto **Gestor Financiero**
 
 ## 2. Creación del archivo `.env`
 
-El repositorio incluye `.env.example`. Para generar la configuración local:
+El repositorio incluye `.env.example` con la configuración completa del entorno de desarrollo (es una copia
+exacta del `.env` original). Para generar la configuración local:
 
 ```bash
 copy .env.example .env
 php artisan key:generate
 ```
 
-Después, ajustar `DB_PASSWORD` si el usuario `root` de MySQL tiene contraseña.
+`key:generate` sobrescribe la `APP_KEY` de ejemplo con una clave nueva. Después, ajustar `DB_PASSWORD` si el
+usuario `root` de MySQL tiene contraseña.
 
 ---
 

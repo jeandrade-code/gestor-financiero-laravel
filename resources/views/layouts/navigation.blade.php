@@ -4,7 +4,7 @@
             <!-- Logo & Brand -->
             <div class="flex items-center gap-8">
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-2" aria-label="{{ config('app.name') }} - Inicio">
-                    <svg class="w-8 h-8 text-brand-600 dark:text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg class="w-8 h-8 text-brand-600 dark:text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                     <span class="text-heading-sm font-semibold text-neutral-900 dark:text-neutral-50 hidden sm:block">{{ config('app.name') }}</span>
@@ -13,7 +13,7 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center gap-1">
                     <a href="{{ route('dashboard') }}"
-                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('dashboard') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('dashboard') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                        aria-current="{{ request()->routeIs('dashboard') ? 'page' : 'false' }}">
                         <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
@@ -22,7 +22,7 @@
                     </a>
 
                     <a href="{{ route('categorias.index') }}"
-                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('categorias.*') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('categorias.*') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                        aria-current="{{ request()->routeIs('categorias.*') ? 'page' : 'false' }}">
                         <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
@@ -31,7 +31,7 @@
                     </a>
 
                     <a href="{{ route('cuentas.index') }}"
-                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('cuentas.*') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('cuentas.*') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                        aria-current="{{ request()->routeIs('cuentas.*') ? 'page' : 'false' }}">
                         <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -40,7 +40,7 @@
                     </a>
 
                     <a href="{{ route('transacciones.index') }}"
-                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('transacciones.*') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                       class="px-3 py-2 rounded-lg text-body-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('transacciones.*') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                        aria-current="{{ request()->routeIs('transacciones.*') ? 'page' : 'false' }}">
                         <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -74,8 +74,8 @@
                             aria-haspopup="true"
                             aria-label="Menú de usuario"
                             onclick="toggleUserMenu()">
-                        <div class="w-8 h-8 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center">
-                            <span class="text-body-sm font-semibold text-brand-700 dark:text-brand-300">{{ auth()->user() ? strtoupper(auth()->user()->name[0]) : 'U' }}</span>
+                        <div class="w-8 h-8 rounded-full bg-brand-100 dark:bg-neutral-800/70 flex items-center justify-center">
+                            <span class="text-body-sm font-semibold text-brand-700 dark:text-neutral-300">{{ auth()->user() ? strtoupper(auth()->user()->name[0]) : 'U' }}</span>
                         </div>
                         <span class="hidden sm:block text-body-sm font-medium">{{ auth()->user()->name }}</span>
                         <svg class="w-4 h-4 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -132,22 +132,22 @@
         <div class="md:hidden hidden border-t border-neutral-200 dark:border-neutral-700 py-4" id="mobile-menu" role="navigation" aria-label="Navegación móvil">
             <nav class="flex flex-col gap-1">
                 <a href="{{ route('dashboard') }}"
-                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('dashboard') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('dashboard') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                    aria-current="{{ request()->routeIs('dashboard') ? 'page' : 'false' }}">
                     Inicio
                 </a>
                 <a href="{{ route('categorias.index') }}"
-                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('categorias.*') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('categorias.*') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                    aria-current="{{ request()->routeIs('categorias.*') ? 'page' : 'false' }}">
                     Categorías
                 </a>
                 <a href="{{ route('cuentas.index') }}"
-                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('cuentas.*') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('cuentas.*') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                    aria-current="{{ request()->routeIs('cuentas.*') ? 'page' : 'false' }}">
                     Cuentas
                 </a>
                 <a href="{{ route('transacciones.index') }}"
-                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('transacciones.*') ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-300' : '' }}"
+                   class="px-3 py-2.5 rounded-lg text-body font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors {{ request()->routeIs('transacciones.*') ? 'bg-brand-50 text-brand-700 dark:bg-neutral-800/70 dark:text-neutral-300' : '' }}"
                    aria-current="{{ request()->routeIs('transacciones.*') ? 'page' : 'false' }}">
                     Transacciones
                 </a>

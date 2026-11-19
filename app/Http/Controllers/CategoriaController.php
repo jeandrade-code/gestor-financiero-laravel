@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCategoriaRequest;
 use App\Http\Requests\UpdateCategoriaRequest;
 use App\Models\Categoria;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CategoriaController extends Controller
@@ -13,15 +14,30 @@ class CategoriaController extends Controller
     /**
      * Listado de categorías.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $categorias = Categoria::query()
             ->withCount('transacciones')
+            ->when($request->filled('tipo'), fn ($query) => $query->where('tipo', $request->string('tipo')))
+            ->when($request->filled('search'), function ($query) use ($request): void {
+                $term = '%'.$request->string('search')->trim().'%';
+
+                $query->where(fn ($query) => $query
+                    ->where('nombre', 'like', $term)
+                    ->orWhere('descripcion', 'like', $term));
+            })
             ->orderBy('tipo')
             ->orderBy('nombre')
-            ->paginate(10);
+            ->paginate(10)
+            ->withQueryString();
 
-        return view('categorias.index', compact('categorias'));
+        $resumen = [
+            'total' => Categoria::query()->count(),
+            'ingresos' => Categoria::query()->where('tipo', Categoria::TIPO_INGRESO)->count(),
+            'gastos' => Categoria::query()->where('tipo', Categoria::TIPO_GASTO)->count(),
+        ];
+
+        return view('categorias.index', compact('categorias', 'resumen'));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCuentaRequest;
 use App\Http\Requests\UpdateCuentaRequest;
 use App\Models\Cuenta;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CuentaController extends Controller
@@ -13,14 +14,26 @@ class CuentaController extends Controller
     /**
      * Listado de cuentas con su saldo actual.
      */
-    public function index(): View
+    public function index(Request $request): View
     {
         $cuentas = Cuenta::query()
             ->withCount('transacciones')
-            ->orderBy('nombre')
-            ->paginate(10);
+            ->when($request->filled('search'), function ($query) use ($request): void {
+                $term = '%'.$request->string('search')->trim().'%';
 
-        return view('cuentas.index', compact('cuentas'));
+                $query->where(fn ($query) => $query
+                    ->where('nombre', 'like', $term)
+                    ->orWhere('descripcion', 'like', $term));
+            })
+            ->orderBy('nombre')
+            ->paginate(9)
+            ->withQueryString();
+
+        return view('cuentas.index', [
+            'cuentas' => $cuentas,
+            'saldoTotal' => (float) Cuenta::query()->sum('saldo'),
+            'totalCuentas' => Cuenta::query()->count(),
+        ]);
     }
 
     /**
