@@ -1,3 +1,11 @@
+# Scripts de captura y configuración de asistentes usados solo durante el desarrollo
+/.capturas/
+/AGENTS.md
+/CLAUDE.md
+/boost.json
+/.claude/
+/.ai/
+
 # Entorno y secretos (se versiona .env.example como referencia del proyecto)
 .env
 .env.backup
