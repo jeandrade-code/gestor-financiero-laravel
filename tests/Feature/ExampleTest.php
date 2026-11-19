@@ -7,12 +7,24 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
     /**
-     * La raíz redirige al inicio de sesión.
+     * La raíz muestra la landing page.
      */
-    public function test_la_raiz_redirige_al_inicio_de_sesion(): void
+    public function test_la_raiz_muestra_la_landing_page(): void
     {
         $response = $this->get('/');
 
-        $response->assertRedirect(route('login'));
+        $response->assertOk();
+        $response->assertSee('Gestor Financiero');
+    }
+
+    /**
+     * La ruta de login es accesible.
+     */
+    public function test_la_ruta_login_es_accesible(): void
+    {
+        $response = $this->get(route('login'));
+
+        $response->assertOk();
+        $response->assertSee('Iniciar sesión');
     }
 }

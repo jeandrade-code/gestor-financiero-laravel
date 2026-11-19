@@ -1,0 +1,125 @@
+{
+  "login": "Gestor Financiero\nCorreo electrónico\nContraseña\nRecordarme\n¿Olvidó su contraseña?\nINICIAR SESIÓN",
+  "dashboard": "Gestor Financiero\nInicio\nCategorías\nCuentas\nTransacciones\nAdministrador\nPanel general\n\nSaldo total de cuentas\n\n2.735.000,00 COP\n\n3 cuenta(s) registrada(s)\n\nIngresos registrados\n\n600.000,00 COP\n\n2 movimiento(s)\n\nGastos registrados\n\n365.000,00 COP\n\n3 movimiento(s)\n\nÚltimos movimientos\nFECHA\tCUENTA\tCATEGORÍA\tTIPO\tMONTO\n18/11/2026\tAhorros\tPapelería\tGasto\t−45.000,00 COP\n16/11/2026\tBancolombia\tArriendo\tGasto\t−300.000,00 COP\n14/11/2026\tCaja\tServicios públicos\tGasto\t−20.000,00 COP\n11/11/2026\tBancolombia\tVentas\tIngreso\t+450.000,00 COP\n09/11/2026\tCaja\tSalario\tIngreso\t+150.000,00 COP\nREGISTRAR TRANSACCIÓN\nVER CUENTAS\nVER CATEGORÍAS",
+  "categorias": [
+    {
+      "nombre": "Salario",
+      "tipo": "Ingreso",
+      "movimientos": "1"
+    },
+    {
+      "nombre": "Ventas",
+      "tipo": "Ingreso",
+      "movimientos": "1"
+    },
+    {
+      "nombre": "Arriendo",
+      "tipo": "Gasto",
+      "movimientos": "1"
+    },
+    {
+      "nombre": "Papelería",
+      "tipo": "Gasto",
+      "movimientos": "1"
+    },
+    {
+      "nombre": "Servicios públicos",
+      "tipo": "Gasto",
+      "movimientos": "1"
+    }
+  ],
+  "cuentaConMovimientos": "Gestor Financiero\nInicio\nCategorías\nCuentas\nTransacciones\nAdministrador\nEditar cuenta\nEsta cuenta tiene movimientos asociados: su saldo se calcula automáticamente y no puede editarse a mano.\nNombre\nDescripción (opcional)\nSaldo\n\nEl saldo se actualiza con las transacciones registradas.\n\nMoneda\nACTUALIZAR CUENTA\nCancelar",
+  "transacciones": [
+    {
+      "fecha": "18/11/2026",
+      "cuenta": "Ahorros",
+      "categoria": "Papelería",
+      "tipo": "Gasto",
+      "monto": "−45.000,00 COP",
+      "registradoPor": "Administrador"
+    },
+    {
+      "fecha": "16/11/2026",
+      "cuenta": "Bancolombia",
+      "categoria": "Arriendo",
+      "tipo": "Gasto",
+      "monto": "−300.000,00 COP",
+      "registradoPor": "Administrador"
+    },
+    {
+      "fecha": "14/11/2026",
+      "cuenta": "Caja",
+      "categoria": "Servicios públicos",
+      "tipo": "Gasto",
+      "monto": "−20.000,00 COP",
+      "registradoPor": "Administrador"
+    },
+    {
+      "fecha": "11/11/2026",
+      "cuenta": "Bancolombia",
+      "categoria": "Ventas",
+      "tipo": "Ingreso",
+      "monto": "+450.000,00 COP",
+      "registradoPor": "Administrador"
+    },
+    {
+      "fecha": "09/11/2026",
+      "cuenta": "Caja",
+      "categoria": "Salario",
+      "tipo": "Ingreso",
+      "monto": "+150.000,00 COP",
+      "registradoPor": "Administrador"
+    }
+  ],
+  "validacionMontoNegativo": "Gestor Financiero\nInicio\nCategorías\nCuentas\nTransacciones\nAdministrador\nNueva transacción\n\nCorrija los siguientes errores:\n\nEl monto debe ser mayor que cero.\nCuenta\nSeleccione una cuenta\nAhorros — saldo 755.000,00 COP\nBancolombia — saldo 1.650.000,00 COP\nCaja — saldo 330.000,00 COP\nTipo de movimiento\nSeleccione un tipo\nIngreso\nGasto\nCategoría\nSeleccione una categoría\nSalario (ingreso)\nVentas (ingreso)\nArriendo (gasto)\nPapelería (gasto)\nServicios públicos (gasto)\n\nLa categoría debe coincidir con el tipo de movimiento seleccionado.\n\nMonto\nEl monto debe ser mayor que cero.\nFecha\nDescripción (opcional)\nGUARDAR TRANSACCIÓN\nCancelar",
+  "validacionSaldoInsuficiente": "Gestor Financiero\nInicio\nCategorías\nCuentas\nTransacciones\nAdministrador\nNueva transacción\n\nCorrija los siguientes errores:\n\nEl gasto supera el saldo disponible de la cuenta (330.000,00 COP).\nCuenta\nSeleccione una cuenta\nAhorros — saldo 755.000,00 COP\nBancolombia — saldo 1.650.000,00 COP\nCaja — saldo 330.000,00 COP\nTipo de movimiento\nSeleccione un tipo\nIngreso\nGasto\nCategoría\nSeleccione una categoría\nSalario (ingreso)\nVentas (ingreso)\nArriendo (gasto)\nPapelería (gasto)\nServicios públicos (gasto)\n\nLa categoría debe coincidir con el tipo de movimiento seleccionado.\n\nMonto\nEl gasto supera el saldo disponible de la cuenta (330.000,00 COP).\nFecha\nDescripción (opcional)\nGUARDAR TRANSACCIÓN\nCancelar",
+  "bloqueoCuentaServidor": "No se puede eliminar la cuenta porque tiene movimientos asociados.",
+  "bloqueoCategoriaServidor": "No se puede eliminar la categoría porque tiene transacciones asociadas.",
+  "pruebaSaldo": {
+    "idCuenta": "5",
+    "inicial": [
+      "Cuenta de prueba",
+      "Cuenta creada para demostrar el efecto de los movimientos en el saldo.",
+      "COP",
+      "200.000,00 COP",
+      "0",
+      "Editar\nEliminar"
+    ],
+    "trasIngreso150000": [
+      "Cuenta de prueba",
+      "Cuenta creada para demostrar el efecto de los movimientos en el saldo.",
+      "COP",
+      "350.000,00 COP",
+      "1",
+      "Editar\nEliminar"
+    ],
+    "trasGasto20000": [
+      "Cuenta de prueba",
+      "Cuenta creada para demostrar el efecto de los movimientos en el saldo.",
+      "COP",
+      "330.000,00 COP",
+      "2",
+      "Editar\nEliminar"
+    ],
+    "trasEditarIngresoA100000": [
+      "Cuenta de prueba",
+      "Cuenta creada para demostrar el efecto de los movimientos en el saldo.",
+      "COP",
+      "280.000,00 COP",
+      "2",
+      "Editar\nEliminar"
+    ],
+    "trasEliminarGasto": [
+      "Cuenta de prueba",
+      "Cuenta creada para demostrar el efecto de los movimientos en el saldo.",
+      "COP",
+      "300.000,00 COP",
+      "1",
+      "Editar\nEliminar"
+    ],
+    "limpiezaFinal": "cuenta eliminada"
+  },
+  "idGasto": null,
+  "dashboardFinal": "Gestor Financiero\nInicio\nCategorías\nCuentas\nTransacciones\nAdministrador\nPanel general\n\nSaldo total de cuentas\n\n2.735.000,00 COP\n\n3 cuenta(s) registrada(s)\n\nIngresos registrados\n\n600.000,00 COP\n\n2 movimiento(s)\n\nGastos registrados\n\n365.000,00 COP\n\n3 movimiento(s)\n\nÚltimos movimientos\nFECHA\tCUENTA\tCATEGORÍA\tTIPO\tMONTO\n18/11/2026\tAhorros\tPapelería\tGasto\t−45.000,00 COP\n16/11/2026\tBancolombia\tArriendo\tGasto\t−300.000,00 COP\n14/11/2026\tCaja\tServicios públicos\tGasto\t−20.000,00 COP\n11/11/2026\tBancolombia\tVentas\tIngreso\t+450.000,00 COP\n09/11/2026\tCaja\tSalario\tIngreso\t+150.000,00 COP\nREGISTRAR TRANSACCIÓN\nVER CUENTAS\nVER CATEGORÍAS",
+  "trasLogout": "/login"
+}
