@@ -73,7 +73,7 @@
 
             const opcion = opcionCuenta();
             const saldo = opcion ? parseFloat(opcion.dataset.saldo || '0') : null;
-            const valor = parseFloat(monto.value || '0');
+            const valor = window.moneyValue ? window.moneyValue(monto) : parseFloat(monto.value || '0');
 
             alerta.classList.add('hidden');
 

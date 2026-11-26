@@ -52,7 +52,9 @@ Ruta: **Categorías** en el menú lateral.
 
 Ruta: **Cuentas** en el menú lateral.
 
-- **Crear:** botón **Nueva cuenta**. Se indican nombre, saldo inicial, moneda y descripción.
+- **Crear:** botón **Nueva cuenta**. Se indican nombre, saldo inicial, moneda y descripción. El campo de
+  saldo aplica una máscara monetaria: al escribir se agrupan los miles con punto y al salir del campo se
+  completa la coma decimal (por ejemplo, `150000` → `150.000,00`).
 - **Listar:** tarjetas con saldo actual y cantidad de movimientos. Filtro por texto.
 - **Editar:** el saldo aparece de solo lectura cuando la cuenta ya tiene movimientos, porque se calcula
   automáticamente. Sí se pueden cambiar nombre, moneda y descripción.
@@ -69,7 +71,9 @@ Ruta: **Transacciones** en el menú lateral.
 2. Seleccionar la cuenta. El selector muestra el saldo disponible de cada una.
 3. Elegir el tipo: **Ingreso** o **Gasto**.
 4. Seleccionar una categoría del tipo elegido; las categorías del otro tipo se ocultan.
-5. Ingresar monto (> 0), fecha y descripción opcional.
+5. Ingresar monto (> 0), fecha y descripción opcional. El monto tiene máscara monetaria: puedes escribir
+   `150000`, `150000,50` o `150.000,50` y el campo se formatea solo, mientras el valor numérico se conserva
+   para el cálculo.
 6. Guardar.
 
 Si el gasto supera el saldo de la cuenta, se muestra: *El gasto supera el saldo disponible de la cuenta*

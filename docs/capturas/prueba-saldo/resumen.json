@@ -1,28 +1,28 @@
 {
-  "fecha": "2026-11-19",
+  "fecha": "2026-11-26",
   "pasos": {
     "inicial": {
-      "id": "12",
+      "id": "7",
       "saldo": "200.000,00 COP",
       "texto": "Cuenta de prueba Cuenta creada para demostrar el efecto de los movimientos en el saldo. SALDO ACTUAL 200.000,00 COP COP 0 movimientos"
     },
     "trasIngreso": {
-      "id": "12",
+      "id": "7",
       "saldo": "350.000,00 COP",
       "texto": "Cuenta de prueba Cuenta creada para demostrar el efecto de los movimientos en el saldo. SALDO ACTUAL 350.000,00 COP COP 1 movimiento"
     },
     "trasGasto": {
-      "id": "12",
+      "id": "7",
       "saldo": "330.000,00 COP",
       "texto": "Cuenta de prueba Cuenta creada para demostrar el efecto de los movimientos en el saldo. SALDO ACTUAL 330.000,00 COP COP 2 movimientos"
     },
     "trasEditar": {
-      "id": "12",
+      "id": "7",
       "saldo": "280.000,00 COP",
       "texto": "Cuenta de prueba Cuenta creada para demostrar el efecto de los movimientos en el saldo. SALDO ACTUAL 280.000,00 COP COP 2 movimientos"
     },
     "trasEliminar": {
-      "id": "12",
+      "id": "7",
       "saldo": "300.000,00 COP",
       "texto": "Cuenta de prueba Cuenta creada para demostrar el efecto de los movimientos en el saldo. SALDO ACTUAL 300.000,00 COP COP 1 movimiento"
     }

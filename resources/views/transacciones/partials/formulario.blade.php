@@ -5,6 +5,10 @@
     $fechaSeleccionada = old('fecha', $transaccion->fecha?->format('Y-m-d') ?? now()->toDateString());
     $cuentaActual = $cuentas->firstWhere('id', (int) $cuentaSeleccionada);
     $monedaActual = $cuentaActual->moneda ?? 'COP';
+    $montoInicial = old('monto', $transaccion->monto);
+    $montoVisible = $montoInicial === null || $montoInicial === ''
+        ? ''
+        : number_format((float) $montoInicial, 2, ',', '.');
 @endphp
 
 <div class="space-y-5">
@@ -110,17 +114,18 @@
             <div class="relative">
                 <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 font-mono text-[0.75rem] text-neutral-400" aria-hidden="true">$</span>
                 <input id="monto"
-                       type="number"
-                       name="monto"
-                       value="{{ old('monto', $transaccion->monto) }}"
+                       type="text"
+                       inputmode="decimal"
+                       value="{{ $montoVisible }}"
+                       data-money-input
+                       data-money-target="monto-valor"
+                       autocomplete="off"
                        required
-                       step="0.01"
-                       min="0.01"
-                       max="9999999999999999.99"
                        class="input pl-7 pr-14 font-mono tabular-nums {{ $errors->has('monto') ? 'input-error' : '' }}"
                        aria-describedby="{{ $errors->has('monto') ? 'monto-error' : 'monto-hint' }}"
                        aria-invalid="{{ $errors->has('monto') ? 'true' : 'false' }}"
-                       placeholder="0.00">
+                       placeholder="0,00">
+                <input type="hidden" id="monto-valor" name="monto" value="{{ $montoInicial }}">
                 <span id="monto-moneda" class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[0.625rem] font-medium uppercase tracking-[0.08em] text-neutral-400">{{ $monedaActual }}</span>
             </div>
             @if ($errors->has('monto'))

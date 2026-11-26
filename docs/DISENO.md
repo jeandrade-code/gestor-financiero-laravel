@@ -8,6 +8,7 @@ sobrio, editorial y confiable, lejos del aspecto genérico de los templates. Se 
 
 1. **Contenido antes que decoración.** Jerarquías claras, mucho espacio en blanco y una sola acción principal por pantalla.
 2. **Datos legibles.** Los montos usan `JetBrains Mono` con `tabular-nums`; los ingresos en verde y los gastos en terracota. En modo oscuro el verde se reduce a un acento mínimo: superficies, enlaces y cifras de ingreso pasan a neutros y solo permanece una línea verde apagada en la gráfica.
+3. **Máscara monetaria.** Los campos de saldo y monto muestran el formato `es-CO` mientras se escribe (miles con punto, decimales con coma) y guardan el valor numérico en un campo oculto. La máscara es propia, sin dependencias npm adicionales.
 3. **Densidad controlada.** Botones en tres tamaños (`sm`, `md`, `lg`), íconos de 14–18 px y KPIs de 20–28 px.
 4. **Consistencia espacial.** Escala de 4 px, radios de 6–12 px y sombras muy suaves.
 5. **Accesibilidad.** Etiquetas, `aria-*`, foco visible, contraste suficiente y `prefers-reduced-motion`.

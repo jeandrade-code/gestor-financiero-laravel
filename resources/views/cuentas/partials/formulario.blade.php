@@ -1,6 +1,10 @@
 @php
     $tieneMovimientos = $cuenta->exists && $cuenta->tieneTransacciones();
     $monedaSeleccionada = old('moneda', $cuenta->moneda ?? 'COP');
+    $saldoInicial = old('saldo', $cuenta->saldo ?? '0.00');
+    $saldoVisible = $saldoInicial === null || $saldoInicial === ''
+        ? ''
+        : number_format((float) $saldoInicial, 2, ',', '.');
 @endphp
 
 <div class="space-y-5">
@@ -48,18 +52,19 @@
             <div class="relative">
                 <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 font-mono text-[0.75rem] text-neutral-400">$</span>
                 <input id="saldo"
-                       type="number"
-                       name="saldo"
-                       value="{{ old('saldo', $cuenta->saldo ?? '0.00') }}"
+                       type="text"
+                       inputmode="decimal"
+                       value="{{ $saldoVisible }}"
+                       data-money-input
+                       data-money-target="saldo-valor"
+                       autocomplete="off"
                        required
-                       step="0.01"
-                       min="0"
-                       max="9999999999999999.99"
                        class="input pl-7 font-mono tabular-nums {{ $errors->has('saldo') ? 'input-error' : '' }} {{ $tieneMovimientos ? 'cursor-not-allowed bg-neutral-100 text-neutral-500 dark:bg-neutral-800/60 dark:text-neutral-400' : '' }}"
                        aria-describedby="{{ $errors->has('saldo') ? 'saldo-error' : 'saldo-hint' }}"
                        aria-invalid="{{ $errors->has('saldo') ? 'true' : 'false' }}"
-                       placeholder="0.00"
+                       placeholder="0,00"
                        @readonly($tieneMovimientos)>
+                <input type="hidden" id="saldo-valor" name="saldo" value="{{ $saldoInicial }}">
             </div>
             @if ($errors->has('saldo'))
                 <p id="saldo-error" class="form-error" role="alert">{{ $errors->first('saldo') }}</p>
