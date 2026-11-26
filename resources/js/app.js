@@ -106,8 +106,9 @@ const inicializarMascaraMoneda = function (input) {
 
         const ultima = partes[partes.length - 1];
 
-        // Tres cifras después del punto son miles en es-CO; el resto es decimal.
-        return ultima.length === 3
+        // Con uno o dos dígitos después del punto es un decimal escrito por el
+        // usuario; con tres o más, o con varios puntos, son miles en es-CO.
+        return partes.length > 2 || ultima.length >= 3
             ? partes.join('')
             : partes.slice(0, -1).join('') + ',' + ultima;
     };
